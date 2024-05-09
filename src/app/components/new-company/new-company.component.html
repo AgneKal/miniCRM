@@ -1,0 +1,56 @@
+<section>
+    <div class="newCompanyMainContainer">
+        <div class="containerHeader">
+            Pridėti naują įmonę
+        </div>
+        <div class="containerBody">
+            <form (ngSubmit)="newCompanySubmit(form)" #form="ngForm">
+                <div class="formItem">
+                    <label class="form-label" for="">Pavadinimas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="text" name="name" ngModel #inputName="ngModel" required minlength="2" maxlength="32" pattern="[a-zA-Z ]*">
+                        <div class="form-input-helper" *ngIf="!inputName.valid && inputName.touched">Įmonės pavadinimą turi sudaryti nuo 2 iki 30 simbolių</div>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label class="form-label" for="">Įmonės kodas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="number" name="companyCode" ngModel #inputCompanyCode="ngModel" pattern="[0-9]{5,15}$">
+                        <div class="form-input-helper" *ngIf="!inputCompanyCode.valid && inputCompanyCode.touched">Įmonės kodą turi sudaryti nuo 5 iki 15 skaitmenų</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="form-label" for="">PVM mokėtojo kodas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="text" name="VATcode" ngModel #inputVATcode="ngModel" required pattern="(^LT[0-9]*$)|(^[0-9]*$)">
+                        <div class="form-input-helper" *ngIf="!inputVATcode.valid && inputVATcode.touched">PVM mokėtojo kodo formatas arba skaičiai arba LT ir skaičiai</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="form-label" for="">Adresas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="text" name="address" ngModel #inputAddress="ngModel" required pattern="[Ą-Ž\w\-\.\, ]*$">
+                        <div class="form-input-helper" *ngIf="!inputAddress.valid && inputAddress.touched">Įmonės adrese leidžiami naudoti simboliai ".", "," ir "-"</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="form-label" for="">El. pašto adresas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="email" name="email" ngModel #inputEmail="ngModel" required email>
+                        <div class="form-input-helper" *ngIf="!inputEmail.valid && inputEmail.touched">El. pašto adresas neatitinka el. pašto adreso formato</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="form-label" for="">Telefonas:</label>
+                    <div class="form-input-holder">
+                        <input class="form-input" type="text" name="phone" placeholder="+37060012123" ngModel #inputPhone="ngModel" required appPhoneValidator>
+                        <div class="form-input-helper" *ngIf="!inputPhone.valid && inputPhone.touched">Įmonės telefono numerį turi sudaryti 10-12 simboliu, numeris turi prasidėti šalies kodu, pvz.: +370</div>
+                    </div>
+                </div>
+                <button class="btn" type="submit">Pridėti</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- [disabled]="!form.valid" "-->
