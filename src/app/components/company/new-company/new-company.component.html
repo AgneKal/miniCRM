@@ -17,7 +17,7 @@
                 <div class="formItem">
                     <label class="formLabel redBackground" for="">Įmonės kodas:</label>
                     <div class="formInputHolder">
-                        <input class="formInput" type="number" name="companyCode" ngModel #inputCompanyCode="ngModel" pattern="[0-9]{5,15}$">
+                        <input class="formInput" type="number" name="companyCode" ngModel #inputCompanyCode="ngModel" required pattern="[0-9]{5,15}$">
                         <div class="formInputHelper" *ngIf="!inputCompanyCode.valid && inputCompanyCode.touched">Įmonės kodą turi sudaryti nuo 5 iki 15 skaitmenų</div>
                     </div>
                 </div>

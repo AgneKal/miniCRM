@@ -181,6 +181,10 @@ nav a:hover {
     padding: 6px;
 }
 
+.formInput::placeholder {
+    color: lightgrey
+}
+
 .isInvalid {
     border: 1px solid var(--secondaryRed);
 }
