@@ -1,0 +1,81 @@
+<div class="appContainer">
+    <div class="componentMainContainer blueBorder">
+        <div class="containerHeader blueBackground">
+            <p>Pridėti naują kontaktą</p>
+        </div>
+        <div class="containerBody">
+            <form class="formBody" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+                <div class="formItem">
+                    <label class="formLabel blueBackground" for="">Vardas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="name" [class.isInvalid]="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
+                        <div class="formInputHelper" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">Vardą turi sudaryti nuo 2 iki 30 simbolių</div>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label class="formLabel blueBackground" for="">Pavardė:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="surname" [class.isInvalid]="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
+                        <div class="formInputHelper" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">Pavardę turi sudaryti nuo 2 iki 30 simbolių</div>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label class="formLabel blueBackground" for="">Pareigos:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="position" [class.isInvalid]="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
+                        <div class="formInputHelper" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">Pareigas turi sudaryti nuo 2 iki 30 simbolių</div>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label class="formLabel blueBackground" for="">Įmonė:</label>
+                    <div class="formInputHolder">
+                        <select class="formControl" formControlName="company" [class.isInvalid]="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
+                            <option value=""></option>
+                        </select>
+                        <div class="formInputHelper" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">Įmonės adrese leidžiami naudoti simboliai ".", "," ir "-"</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="btnContainer">
+                    <button type="button" class="btn accentBackground" (click)="addPhoneNumber()">+</button>
+                    <button type="button" class="btn accentBackground" (click)="removePhoneNumber()">-</button>
+                </div>
+                <div class="formItem">
+                    <label class="formLabel blueBackground" for="">Telefonas:</label>
+
+                    <div class="formItemContainer" formArrayName="phones">
+                        <div class="formInputHolder" *ngFor="let phone of phones; let i = index">
+                            <input type="text" class="formInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">
+                            <div class="formInputHelper" *ngIf="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">Telefono numerį turi sudaryti 10-12 simbolių, numeris turi prasidėti šalies kodu, pvz.: +370</div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="btn blueBackground" type="submit" [disabled]="!contactForm.valid">Pridėti</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="formItem">
+    <label class="formLabel" for="">Telefonas:</label>
+    <div>
+        <div class="formItemContainer" formArrayName="phones">
+            <div class="formInputHolder" *ngFor="let phone of phones.controls; let i = index">
+                <input type="text" class="formInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="phone.invalid && phone.touched">
+                <div class="formInputHelper" *ngIf="phone.invalid && phone.touched">Telefono numerį turi sudaryti 10-12 simbolių, numeris turi prasidėti šalies kodu, pvz.: +370</div>
+            </div>
+        </div>
+        <div class="btnContainer">
+            <button type="button" class="btn btn-secondary" (click)="addPhoneNumber()">Pridėti papildomą telefono numerį</button>
+            <button type="button" class="btn btn-tertiary" (click)="removePhoneNumber()">Pašalinti papildomą telefono numerį</button>
+        </div>
+    </div>
+</div> -->

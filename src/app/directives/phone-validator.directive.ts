@@ -33,6 +33,4 @@ export class PhoneValidatorDirective implements Validator{
       return null;
     }
   }
-
-
 }

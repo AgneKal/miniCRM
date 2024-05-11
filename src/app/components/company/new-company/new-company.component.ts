@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { PhoneValidatorDirective } from '../../directives/phone-validator.directive';
+import { PhoneValidatorDirective } from '../../../directives/phone-validator.directive';
+
 
 @Component({
   selector: 'app-new-company',

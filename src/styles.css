@@ -1,1 +1,258 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body,
+body * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: roboto, monospace;
+}
+
+/* :root {
+    --blue: #134379;
+    --cream: #F3F1ED;
+    --pink: #D16A86;
+    --green: #BDD4AD;
+    --red: #C53E66;
+} */
+
+:root {
+    --primaryBlue: #516893;
+    --secondaryBlue: #7B90B4;
+    --primaryRed: #BB6687;
+    --secondaryRed: #D9647A;
+    --primaryAccent:#9E5C6A;
+    --secondaryAccent: #A09B88;
+    --background: #F5F5F5;
+    --text1: #333333;
+    --text2:#ffffff;
+}
+
+/* .sq {
+    width: 15px;
+    height: 15px;
+    padding: 15px;
+}
+
+.sq1 {
+    background-color: var(--primaryBlue);
+}
+
+.sq2 {
+    background-color: var(--secondaryBlue);
+}
+
+.sq3 {
+    background-color: var(--primaryRed);
+}
+
+.sq4 {
+    background-color: var(--secondaryRed);
+}
+
+.sq5 {
+    background-color: var(--primaryAccent);
+}
+
+.sq6 {
+    background-color: var(--secondaryAccent);
+}
+
+.sq7 {
+    background-color: var(--background);
+}
+
+.sq8 {
+    background-color: var(--text1);
+}
+
+.sq9 {
+    background-color: var(--text2);
+} */
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background);
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 5px;
+}
+
+.brand .brandLogo img {
+    width: 80px;
+}
+
+.brandName {
+    padding-top: 10px;
+}
+
+.navMenu {
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.navMenu a {
+    min-width: 220px;
+    min-height: 22px;
+    color: var(--primaryBlue);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: var(--primaryRed);
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.appMainContainer {
+    width: 100%;
+}
+
+.appContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.componentMainContainer {
+    margin-top: 30px;
+    width: 100%;
+    margin-left: calc((100% - 80%) / 2);
+    margin-right: calc((100% - 80%) / 2);
+    overflow: hidden;
+}
+
+.containerHeader {
+    width: 100%;
+    font-size: 30px;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.containerBody {
+    width: 100%;
+    padding: 20px;
+}
+
+.formBody {
+    width: 100%;
+    display: grid;
+}
+
+.formItem {
+    width: 90%;
+    display: grid;
+    justify-self: start;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    margin-bottom: 10px;
+    align-items: start;
+    justify-items: end;
+}
+
+.formInputHolder {
+    width: 100%;
+}
+
+.formLabel {
+    margin-right: 10px;
+    font-size: 22px;
+    padding: 6px;
+}
+
+.formInput {
+    width: 100%;
+    font-size: 22px;
+    padding: 6px;
+}
+
+.isInvalid {
+    border: 1px solid var(--secondaryRed);
+}
+
+.formInputHelper {
+    padding: 8px 0;
+    color: var(--secondaryRed);
+}
+
+.formItemContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-self: start;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.blueBorder {
+    border: 2px solid var(--primaryBlue);
+    border-radius: 20px;
+}
+
+.blueBackground {
+    background-color: var(--primaryBlue);
+    color: var(--text2);
+}
+
+.redBorder {
+    border: 2px solid var(--primaryRed);
+    border-radius: 20px;
+}
+
+.redBackground {
+    background-color: var(--primaryRed);
+    color: var(--text2)
+}
+
+.redBackground:disabled {
+    background-color: #bb668699;
+}
+
+.blueBackground:disabled {
+    background-color:#51689399;
+}
+
+.accentBackground {
+    background-color: var(--secondaryAccent);
+    color: var(--text2)
+}
+
+.phoneContainer {
+    border: 1px solid var(--secondaryBlue);
+}
+
+hr {
+    width: 90%;
+    justify-self: center;
+    margin: 10px 0;
+}
