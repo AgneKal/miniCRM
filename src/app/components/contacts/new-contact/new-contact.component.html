@@ -51,7 +51,7 @@
 
                     <div class="formItemContainer" formArrayName="phones">
                         <div class="formInputHolder" *ngFor="let phone of phones; let i = index">
-                            <input type="text" class="formInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">
+                            <input type="text" class="formInput phoneInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">
                             <div class="formInputHelper" *ngIf="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">Telefono numerį turi sudaryti 10-12 simbolių, numeris turi prasidėti šalies kodu, pvz.: +370</div>
                         </div>
                     </div>

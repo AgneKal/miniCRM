@@ -251,6 +251,10 @@ nav a:hover {
     border: 1px solid var(--secondaryBlue);
 }
 
+.phoneInput {
+    margin-bottom: 10px;
+}
+
 hr {
     width: 90%;
     justify-self: center;
