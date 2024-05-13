@@ -1,0 +1,38 @@
+<div class="appContainer ">
+    <div class="componentMainContainer redBorder">
+        <div class="containerHeader redBackground ">
+            <p>Įmonių sąrašas</p>
+        </div>
+        <div class=" containerBody">
+            <table class="table">
+
+                <thead>
+                    <tr class="redBackground">
+                        <th>Vardas</th>
+                        <th>Pavardė</th>
+                        <th>Pareigos</th>
+                        <th>Įmonė</th>
+                        <th>Telefonai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts; let i=index">
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.surname }}</td>
+                        <td>{{ contact.position }}</td>
+                        <td>{{ contact.company_name?.name }}</td>
+                        <td>
+                            <div *ngFor="let phone of contact.phones">
+                                {{ phone }}
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

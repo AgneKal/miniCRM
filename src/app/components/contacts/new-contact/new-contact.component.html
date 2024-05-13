@@ -33,19 +33,15 @@
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Įmonė:</label>
                     <div class="formInputHolder">
-                        <select class="formControl" formControlName="company" [class.isInvalid]="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
-                            <option value=""></option>
+                        <select class="formSelect" formControlName="company" [class.isInvalid]="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
+                            <option *ngFor="let company of companies; let i=index" [value]="company.id">{{ company.name }}</option>
                         </select>
-                        <div class="formInputHelper" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">Įmonės adrese leidžiami naudoti simboliai ".", "," ir "-"</div>
+                        <div class="formInputHelper" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">Pasirinkite įmonę</div>
                     </div>
                 </div>
 
                 <hr>
 
-                <div class="btnContainer">
-                    <button type="button" class="btn accentBackground" (click)="addPhoneNumber()">+</button>
-                    <button type="button" class="btn accentBackground" (click)="removePhoneNumber()">-</button>
-                </div>
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Telefonas:</label>
 
@@ -55,8 +51,12 @@
                             <div class="formInputHelper" *ngIf="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">Telefono numerį turi sudaryti 10-12 simbolių, numeris turi prasidėti šalies kodu, pvz.: +370</div>
                         </div>
                     </div>
-
                 </div>
+                <div class="btnContainer">
+                    <button type="button" class="btn accentBackground" (click)="addPhoneNumber()">+</button>
+                    <button type="button" class="btn accentBackground" (click)="removePhoneNumber()">-</button>
+                </div>
+
                 <button class="btn blueBackground" type="submit" [disabled]="!contactForm.valid">Pridėti</button>
             </form>
         </div>

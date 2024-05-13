@@ -1,0 +1,56 @@
+<div class="appContainer ">
+    <div class="componentMainContainer redBorder">
+        <div class="containerHeader redBackground ">
+            <p>Pridėti naują įmonę</p>
+        </div>
+        <div class=" containerBody">
+            <form class="formBody" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">Pavadinimas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="name" [class.isInvalid]="!companyForm.get('name')?.valid && companyForm.get('name')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('name')?.valid && companyForm.touched">Įmonės pavadinimą turi sudaryti nuo 2 iki 30 simbolių</div>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">Įmonės kodas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="number" formControlName="companyCode" [class.isInvalid]="!companyForm.get('companyCode')?.valid && companyForm.get('companyCode')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('companyCode')?.valid && companyForm.get('companyCode')?.touched">Įmonės kodą turi sudaryti nuo 7 iki 9 skaitmenų</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">PVM mokėtojo kodas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="VATcode" [class.isInvalid]="!companyForm.get('VATcode')?.valid && companyForm.get('VATcode')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('VATcode')?.valid && companyForm.get('VATcode')?.touched">PVM mokėtojo kodo formatas arba skaičiai (7-9 skaitmenų ilgio) arba LT ir skaičiai (7-9 skaitmenų ilgio)</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">Adresas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="address" [class.isInvalid]="!companyForm.get('address')?.valid && companyForm.get('address')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('address')?.valid && companyForm.get('address')?.touched">Įmonės adrese leidžiami naudoti simboliai ".", "," ir "-"</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">El. pašto adresas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="email" formControlName="email" [class.isInvalid]="!companyForm.get('email')?.valid && companyForm.get('email')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('email')?.valid && companyForm.get('email')?.touched">El. pašto adresas neatitinka el. pašto adreso formato</div>
+                    </div>
+                </div>
+                <div class="formItem">
+                    <label class="formLabel redBackground" for="">Telefonas:</label>
+                    <div class="formInputHolder">
+                        <input class="formInput" type="text" formControlName="phone" placeholder="+37060012123" [class.isInvalid]="!companyForm.get('phone')?.valid && companyForm.get('phone')?.touched">
+                        <div class="formInputHelper" *ngIf="!companyForm.get('phone')?.valid && companyForm.get('phone')?.touched">Įmonės telefono numerį turi sudaryti 11 skaitmenų, numeris turi prasidėti šalies kodu, pvz.: +370</div>
+                    </div>
+                </div>
+                <button class="btn redBackground" type="submit" [disabled]="!companyForm.valid">Pridėti</button>
+            </form>
+        </div>
+    </div>
+</div>

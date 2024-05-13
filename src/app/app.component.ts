@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NewCompanyComponent } from './components/company/new-company/new-company.component';
+import { NewCompanyComponent } from './components/companies/new-company/new-company.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NewContactComponent } from './components/contacts/new-contact/new-contact.component';
 

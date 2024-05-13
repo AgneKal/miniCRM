@@ -181,12 +181,19 @@ nav a:hover {
     padding: 6px;
 }
 
+.formSelect {
+    width: 100%;
+    font-size: 22px;
+    padding: 6px;
+}
+
 .formInput::placeholder {
     color: lightgrey
 }
 
 .isInvalid {
-    border: 1px solid var(--secondaryRed);
+    outline: 1px solid var(--secondaryRed);
+    border: none;
 }
 
 .formInputHelper {
@@ -263,4 +270,22 @@ hr {
     width: 90%;
     justify-self: center;
     margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-size: 22px;
+    text-align: start;
+    padding: 5px 5px;
+}
+
+td {
+    font-size: 22px;
+    border-bottom: 1px solid var(--primaryRed);
+    padding: 5px 5px;
+    color: var(--text1);
 }
