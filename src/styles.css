@@ -108,15 +108,14 @@ nav {
 .navMenu a {
     min-width: 220px;
     min-height: 22px;
-    color: var(--primaryBlue);
     text-decoration: none;
     font-size: 20px;
 }
 
 nav a:hover {
-    color: var(--primaryRed);
     cursor: pointer;
     font-size: 22px;
+    text-decoration: underline;
 }
 
 .appMainContainer {
@@ -155,10 +154,10 @@ nav a:hover {
 }
 
 .formItem {
-    width: 90%;
+    width: 100%;
     display: grid;
     justify-self: start;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 6fr 18fr 1fr;
     grid-template-rows: 1fr;
     margin-bottom: 10px;
     align-items: start;
@@ -235,6 +234,14 @@ nav a:hover {
     color: var(--text2);
 }
 
+.blueText {
+    color: var(--primaryBlue);
+}
+
+.blueBorderBottom{
+    border-bottom: 1px solid var(--primaryBlue);
+}
+
 .redBorder {
     border: 2px solid var(--primaryRed);
     border-radius: 20px;
@@ -243,6 +250,14 @@ nav a:hover {
 .redBackground {
     background-color: var(--primaryRed);
     color: var(--text2)
+}
+
+.redText {
+    color: var(--primaryRed);
+}
+
+.redBorderBottom {
+    border-bottom: 1px solid var(--primaryRed);
 }
 
 .redBackground:disabled {
@@ -285,7 +300,33 @@ th {
 
 td {
     font-size: 22px;
-    border-bottom: 1px solid var(--primaryRed);
     padding: 5px 5px;
     color: var(--text1);
 }
+
+.load {
+    padding: 5px 5px;
+}
+
+.loader {
+    width: 22px;
+    height: 22px;
+    border: 3px solid var(--primaryRed);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

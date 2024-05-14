@@ -39,7 +39,10 @@
                     <label class="formLabel redBackground" for="">El. pašto adresas:</label>
                     <div class="formInputHolder">
                         <input class="formInput" type="email" formControlName="email" [class.isInvalid]="!companyForm.get('email')?.valid && companyForm.get('email')?.touched">
-                        <div class="formInputHelper" *ngIf="!companyForm.get('email')?.valid && companyForm.get('email')?.touched">El. pašto adresas neatitinka el. pašto adreso formato</div>
+                        <div class="formInputHelper" *ngIf="!companyForm.get('email')?.valid && companyForm.get('email')?.touched && !companyForm.get('email')?.pending">{{ companyForm.get('email')?.errors?.['error'] }}</div>
+                    </div>
+                    <div class="load">
+                        <div class="loader" *ngIf="companyForm.get('email')?.pending"></div>
                     </div>
                 </div>
                 <div class="formItem">
@@ -50,6 +53,7 @@
                     </div>
                 </div>
                 <button class="btn redBackground" type="submit" [disabled]="!companyForm.valid">Pridėti</button>
+
             </form>
         </div>
     </div>

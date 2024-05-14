@@ -17,30 +17,9 @@ export class CompaniesListComponent {
   public companies: Company[]=[];
   public contacts: Contact[]=[];
 
-  constructor(private contactService: ContactService, private companiesService: CompaniesService){
-    this.companiesService
-      .loadCompanies()
-      .subscribe((data)=>{
+  constructor (private companiesService: CompaniesService){
+    this.companiesService.loadCompanies().subscribe((data)=>{
         this.companies=data;
-          this.contactService
-          .loadContact()
-          .pipe(
-            map((data)=>{
-              data.forEach((contact, contactId)=>{
-                this.companies.forEach((company, companyId)=>{
-                  if (contact.company === company.id){
-                    data[contactId].company_name = company;
-                  }
-                })
-              });
-              return data;
-            }
-          ))
-          .subscribe((data)=>{
-            this.contacts=data;
-          });
-        });
+    })
   }
-
-
 }

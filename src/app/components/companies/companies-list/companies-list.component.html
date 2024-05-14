@@ -5,33 +5,26 @@
         </div>
         <div class=" containerBody">
             <table class="table">
-
                 <thead>
                     <tr class="redBackground">
-                        <th>Vardas</th>
-                        <th>Pavardė</th>
-                        <th>Pareigos</th>
-                        <th>Įmonė</th>
-                        <th>Telefonai</th>
+                        <th>Pavadinimas</th>
+                        <th>Įmonės kodas</th>
+                        <th>PVM kodas</th>
+                        <th>Adresas</th>
+                        <th>El. paštas</th>
+                        <th>Telefonas</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let contact of contacts; let i=index">
-                        <td>{{ contact.name }}</td>
-                        <td>{{ contact.surname }}</td>
-                        <td>{{ contact.position }}</td>
-                        <td>{{ contact.company_name?.name }}</td>
-                        <td>
-                            <div *ngFor="let phone of contact.phones">
-                                {{ phone }}
-                            </div>
-
-                        </td>
-
+                    <tr class="redBorderBottom" *ngFor="let company of companies; let i=index">
+                        <td>{{ company.name }}</td>
+                        <td>{{ company.companyCode }}</td>
+                        <td>{{ company.VATcode }}</td>
+                        <td>{{ company.address }}</td>
+                        <td>{{ company.email }}</td>
+                        <td>{{ company.phone }}</td>
                     </tr>
-
                 </tbody>
-
             </table>
         </div>
     </div>

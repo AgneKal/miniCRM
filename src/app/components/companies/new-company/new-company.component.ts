@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { EmailValidator, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { PhoneValidatorDirective } from '../../../directives/phone-validator.directive';
 import { CompaniesService } from '../../../services/companies.service';
 
@@ -21,7 +21,7 @@ export class NewCompanyComponent {
       'companyCode': new FormControl(null, [Validators.required, this.validateCompanyCode]),
       'VATcode': new FormControl(null, [Validators.required, this.validateVATCode]),
       'address': new FormControl(null, [Validators.required, this.validateAddress]),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'email': new FormControl(null, {validators:[Validators.required, this.validateEmail], asyncValidators:[CompaniesService.createUniqueCompanyEmailValidator(companiesService)]}),
       'phone': new FormControl(null, [Validators.required, this.validatePhoneNumber])
     })
   }
@@ -53,6 +53,16 @@ export class NewCompanyComponent {
         return null;
       } else {
         return {error: 'Klaida'};
+      }
+  }
+
+  validateEmail(control: FormControl): ValidationErrors | null {
+    const email: string = control.value;
+    const pattern = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
+      if (pattern.test(email)){
+        return null;
+      } else {
+        return {error: 'El. pašto adresas neatitinka el. pašto adreso formato'};
       }
   }
 
