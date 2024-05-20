@@ -9,7 +9,7 @@
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Vardas:</label>
                     <div class="formInputHolder">
-                        <input class="formInput" type="text" formControlName="name" [class.isInvalid]="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
+                        <input class="formInput" type="text" formControlName="name" [class.isInvalid]="!contactForm.get('name')?.valid && contactForm.get('name')?.touched" [@inputHeight]="inputState[0]" (focus)="inputFocus(0, true)" (blur)="inputFocus(0, false)">
                         <div class="formInputHelper" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">Vardą turi sudaryti nuo 2 iki 30 simbolių</div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Pavardė:</label>
                     <div class="formInputHolder">
-                        <input class="formInput" type="text" formControlName="surname" [class.isInvalid]="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
+                        <input class="formInput" type="text" formControlName="surname" [class.isInvalid]="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched" [@inputHeight]="inputState[1]" (focus)="inputFocus(1, true)" (blur)="inputFocus(1, false)">
                         <div class="formInputHelper" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">Pavardę turi sudaryti nuo 2 iki 30 simbolių</div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Pareigos:</label>
                     <div class="formInputHolder">
-                        <input class="formInput" type="text" formControlName="position" [class.isInvalid]="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
+                        <input class="formInput" type="text" formControlName="position" [class.isInvalid]="!contactForm.get('position')?.valid && contactForm.get('position')?.touched" [@inputHeight]="inputState[2]" (focus)="inputFocus(2, true)" (blur)="inputFocus(2, false)">
                         <div class="formInputHelper" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">Pareigas turi sudaryti nuo 2 iki 30 simbolių</div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="formItem">
                     <label class="formLabel blueBackground" for="">Įmonė:</label>
                     <div class="formInputHolder">
-                        <select class="formSelect" formControlName="company" [class.isInvalid]="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
+                        <select class="formSelect" formControlName="company" [class.isInvalid]="!contactForm.get('company')?.valid && contactForm.get('company')?.touched" [@inputHeight]="inputState[3]" (focus)="inputFocus(3, true)" (blur)="inputFocus(3, false)">
                             <option *ngFor="let company of companies; let i=index" [value]="company.id">{{ company.name }}</option>
                         </select>
                         <div class="formInputHelper" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">Pasirinkite įmonę</div>
@@ -46,8 +46,8 @@
                     <label class="formLabel blueBackground" for="">Telefonas:</label>
 
                     <div class="formItemContainer" formArrayName="phones">
-                        <div class="formInputHolder" *ngFor="let phone of phones; let i = index">
-                            <input type="text" class="formInput phoneInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">
+                        <div class="formInputHolder" *ngFor="let phone of phones; let i = index" [@phoneInput]>
+                            <input type="text" class="formInput phoneInput" [formControlName]="i" placeholder="+37060012345" [class.isInvalid]="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched" [@inputHeight]="inputState[4 + i]" (focus)="inputFocus(4 + i, true)" (blur)="inputFocus(4 + i, false)">
                             <div class="formInputHelper" *ngIf="!contactForm.get('phones.' + i)?.valid && contactForm.get('phones.' + i)?.touched">Telefono numerį turi sudaryti 10-12 simbolių, numeris turi prasidėti šalies kodu, pvz.: +370</div>
                         </div>
                     </div>
