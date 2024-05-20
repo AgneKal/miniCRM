@@ -43,7 +43,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       transition('*=>void', [
         animate(750, style ({
           height: 'auto',
-          transform: 'translateX(1000px)'
+          transform: 'translateX(3000px)'
         })),
         animate(500, style ({
           height: '0px',

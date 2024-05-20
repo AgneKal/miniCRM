@@ -166,6 +166,8 @@ nav a:hover {
 
 .formInputHolder {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .formLabel {
@@ -199,6 +201,7 @@ nav a:hover {
     padding: 8px 0;
     color: var(--secondaryRed);
 }
+
 
 .formItemContainer {
     width: 100%;
